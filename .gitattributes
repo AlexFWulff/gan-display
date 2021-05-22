@@ -1,1 +1,1 @@
-g_out_410 filter=lfs diff=lfs merge=lfs -text
+g_out_410/** filter=lfs diff=lfs merge=lfs -text
