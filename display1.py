@@ -16,9 +16,11 @@ def getFrame():
     return np.uint8(image*255)
 
 if __name__=="__main__":
+    cv2.namedWindow("window", cv2.WINDOW_NORMAL)
+    
     while True:
-        # Get a numpy array to display from the simulation
-        npimage=getFrame()
-        npimage = cv2.cvtColor(npimage, cv2.COLOR_BGR2RGB)
-        cv2.imshow('image',npimage)
+        frame = getFrame()
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        frame = cv2.resize(frame, (480, 480))
+        cv2.imshow("window",frame)
         cv2.waitKey(1)
