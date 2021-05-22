@@ -3,17 +3,12 @@ import numpy as np
 import cv2
 import time
 
-def sin2d(x,y):
-    """2-d sine function to plot"""
-    return np.sin(x) + np.cos(y)
-
 def getFrame():
     changes = np.random.uniform(-1.0, 1.0, size = [1, 4096])
     global seed
     global generator
     seed = seed+changes*0.02
     seed = (seed-np.min(seed))/(np.max(seed)-np.min(seed))*2-1
-    #image = generator.predict(seed)
     image = generator.predict(changes)
     image = image[0, :, :, :]
     return np.uint8(image*255)
